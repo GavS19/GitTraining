@@ -1,5 +1,5 @@
-## Commands ##
-# Tags - simply add tags like for version controlling
+# Commands #
+## Tags - simply add tags like for version controlling
 Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
 $ git tag mytag
 Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
@@ -70,7 +70,7 @@ Date:   Mon Mar 18 21:50:44 2024 +0530
 
     Resolving conflict
 
-# Stash - save work in progress in current file for emergency commit 
+## Stash - save work in progress in current file for emergency commit 
 
 Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
 $ ls
@@ -153,7 +153,7 @@ $ git commit Home.html -m "removed stash & commited my work"
 [master dd49304] removed stash & commited my work
  1 file changed, 1 insertion(+)
 
-# reset
+## reset
 Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
 $ ls
 Home.html  HowTo.md  NewCommands.md  license.txt
@@ -320,3 +320,48 @@ $ git hist
 * 2f0e65c added commands
 * 7a8d2fb updated in branch
 * 994afc9 Initial
+
+## GitHub setup
+In Github, create a repository. 
+then copy the URL available in the readme/help page displayed
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ git remote -v
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ git remote add origin https://github.com/GavS19/GitTraining.git
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ git remote -v
+origin  https://github.com/GavS19/GitTraining.git (fetch)
+origin  https://github.com/GavS19/GitTraining.git (push)
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ git push -u origin master --tags
+Enumerating objects: 61, done.
+Counting objects: 100% (61/61), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (55/55), done.
+Writing objects: 100% (61/61), 7.36 KiB | 396.00 KiB/s, done.
+Total 61 (delta 21), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (21/21), done.
+To https://github.com/GavS19/GitTraining.git
+ * [new branch]      master -> master
+ * [new tag]         V1.0 -> V1.0
+branch 'master' set up to track 'origin/master'.
+
+
+## Git default  branch rename ##
+Due to recent developments, the default branch names is being changed from 'master' to 'main'
+for the new repo's which could create conflict if local git uses existing naming convention - master and Github uses main
+### Workarounds
+1. Github - Update default repo name under Profile>>Settings>>Repository. Set to main 
+2. Git - update existing branch name to main
+    git branch -m main
+3. Git - Initiate with new name
+    git init -b main local-demo
+4. Git - Configure default branch
+    git config --global init.defaultBranch main
+
+
+## Authentication
