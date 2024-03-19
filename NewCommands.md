@@ -152,3 +152,171 @@ Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (maste
 $ git commit Home.html -m "removed stash & commited my work"
 [master dd49304] removed stash & commited my work
  1 file changed, 1 insertion(+)
+
+# reset
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ ls
+Home.html  HowTo.md  NewCommands.md  license.txt
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ nano Home.html
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ cat Home.html
+This is Home Page
+Updates in 'updates' branch
+Well this is an HTML.. if you look at it
+added lines.
+work to be added in staging area
+
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ git add .
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   Home.html
+
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ nano Home.html
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ cat Home.html
+This is Home Page
+Updates in 'updates' branch
+Well this is an HTML.. if you look at it
+added lines.
+work to be added in staging area
+more work added
+
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   Home.html
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Home.html
+
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ git hist
+* a4a2f67 (HEAD -> master) checkin new commands
+* dd49304 removed stash & commited my work
+* 260d165 Updated release
+* f97e43b added license
+* 87d0406 new commands
+*   1860d80 (tag: V1.0) Resolving conflict
+|\
+| * 750a41a (very-bad) worse update in newcommands
+* | 72c0896 fixed bad updates in master for newcommands
+|/
+* 9b0ede5 updated newcommands
+* 5c98c09 added newcommands
+* d249390 removed readme from gitignore
+* 79c2163 updated gitignore
+* 1b2cfac untracking readme
+*   b249cf7 Merge branch 'updates'
+|\
+| * 879beb4 Updated Home.html
+* | 7d97490 Updated the same line on Home.html
+* | 83c173a Readme first checkin
+|/
+* 2f0e65c added commands
+* 7a8d2fb updated in branch
+* 994afc9 Initial
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ git reset 1860d80 --soft
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ git hist
+*   1860d80 (HEAD -> master, tag: V1.0) Resolving conflict
+|\
+| * 750a41a (very-bad) worse update in newcommands
+* | 72c0896 fixed bad updates in master for newcommands
+|/
+* 9b0ede5 updated newcommands
+* 5c98c09 added newcommands
+* d249390 removed readme from gitignore
+* 79c2163 updated gitignore
+* 1b2cfac untracking readme
+*   b249cf7 Merge branch 'updates'
+|\
+| * 879beb4 Updated Home.html
+* | 7d97490 Updated the same line on Home.html
+* | 83c173a Readme first checkin
+|/
+* 2f0e65c added commands
+* 7a8d2fb updated in branch
+* 994afc9 Initial
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   Home.html
+        modified:   NewCommands.md
+        new file:   license.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Home.html
+
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$
+Display all 5441 possibilities? (y or n)
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ git reset a4a2f67 --soft
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   Home.html
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Home.html
+
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ git hist
+* a4a2f67 (HEAD -> master) checkin new commands
+* dd49304 removed stash & commited my work
+* 260d165 Updated release
+* f97e43b added license
+* 87d0406 new commands
+*   1860d80 (tag: V1.0) Resolving conflict
+|\
+| * 750a41a (very-bad) worse update in newcommands
+* | 72c0896 fixed bad updates in master for newcommands
+|/
+* 9b0ede5 updated newcommands
+* 5c98c09 added newcommands
+* d249390 removed readme from gitignore
+* 79c2163 updated gitignore
+* 1b2cfac untracking readme
+*   b249cf7 Merge branch 'updates'
+|\
+| * 879beb4 Updated Home.html
+* | 7d97490 Updated the same line on Home.html
+* | 83c173a Readme first checkin
+|/
+* 2f0e65c added commands
+* 7a8d2fb updated in branch
+* 994afc9 Initial
