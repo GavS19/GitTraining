@@ -365,3 +365,69 @@ for the new repo's which could create conflict if local git uses existing naming
 
 
 ## Authentication
+### HTTPS 
+* Need to input username & password everytime pushing files from local to remote repo
+
+### SSH
+* Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev
+$ ls
+GitBranching/  SigmaWebDev/  TestGitOps/
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev
+$ ls .ssh
+ls: cannot access '.ssh': No such file or directory
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev
+$ mkdir .ssh
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev
+$ cd .ssh
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/.ssh
+$ .ssh-keygen -t rsa -C "gsaitwal19@gmail.com"
+bash: .ssh-keygen: command not found
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/.ssh
+$ cd \
+>
+
+Admin@DESKTOP-092184C MINGW64 ~
+$ ssh -V
+OpenSSH_9.4p1, OpenSSL 3.1.2 1 Aug 2023
+
+Admin@DESKTOP-092184C MINGW64 ~
+$ echo $PATH
+/c/Users/Admin/bin:/mingw64/bin:/usr/local/bin:/usr/bin:/bin:/mingw64/bin:/usr/bin:/c/Users/Admin/bin:/c/Python312/Scripts:/c/Python312:/c/Program Files/Microsoft MPI/Bin:/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0:/c/WINDOWS/System32/OpenSSH:/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/130/Tools/Binn:/c/Program Files (x86)/Microsoft SQL Server/140/Tools/Binn:/c/Program Files/Microsoft SQL Server/140/Tools/Binn:/c/Program Files/Microsoft SQL Server/140/DTS/Binn:/c/Program Files (x86)/Microsoft SQL Server/140/DTS/Binn:/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/110/Tools/Binn:/c/Program Files (x86)/Microsoft SQL Server/120/Tools/Binn:/c/Program Files/Microsoft SQL Server/120/Tools/Binn:/c/Program Files/Microsoft SQL Server/120/DTS/Binn:/c/Program Files (x86)/Microsoft SQL Server/150/DTS/Binn:/c/Program Files/Azure Data Studio/bin:/cmd:/c/Program Files/nodejs:/c/ProgramData/chocolatey/bin:/c/Program Files/dotnet:/c/Users/Admin/AppData/Local/Programs/Python/Python37-32/Scripts:/c/Users/Admin/AppData/Local/Programs/Python/Python37-32:/c/Users/Admin/AppData/Local/Microsoft/WindowsApps:/e/PyCharm Community Edition 2018.3.2/bin:/c/Program Files/Java/jre1.8.0_281/bin:/c/Program Files/Azure Data Studio/bin:/c/Users/Admin/AppData/Local/Programs/Microsoft VS Code/bin:/c/Users/Admin/AppData/Local/GitHubDesktop/bin:/c/Users/Admin/AppData/Roaming/npm:/usr/bin/vendor_perl:/usr/bin/core_perl
+
+Admin@DESKTOP-092184C MINGW64 ~
+$ cd /f/DOMAIN_LEARNING/SigmaWebDev/.ssh
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/.ssh
+$ ssh-keygen -t rsa -C "gsaitwal19@gmail.com"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/Admin/.ssh/id_rsa):
+Created directory '/c/Users/Admin/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/Admin/.ssh/id_rsa
+Your public key has been saved in /c/Users/Admin/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:Rt8OXymLfn117om/tQIDEQ4qWrBn+iyooB5CdYTbvFY gsaitwal19@gmail.com
+The key's randomart image is:
++---[RSA 3072]----+
+| .  .. . ..      |
+|  o.. . o.       |
+| . *+o  ...      |
+|  B.oo E o .   . |
+| +    o S + o o  |
+|o o  o .   B +  o|
+|+o o.     . *. .+|
+|= o      .  ..o *|
+|+.        .. .oBo|
++----[SHA256]-----+
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/.ssh
+$ ls -al
+total 0
+drwxr-xr-x 1 Admin 197121 0 Mar 19 21:55 ./
+drwxr-xr-x 1 Admin 197121 0 Mar 19 21:55 ../
