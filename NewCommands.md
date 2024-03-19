@@ -1,8 +1,7 @@
 ## Commands ##
-**Tags - simply add tags like for version controlling**
+# Tags - simply add tags like for version controlling
 Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
 $ git tag mytag
-
 Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
 $ git tag --list
 mytag
@@ -70,3 +69,86 @@ Author: GavS19 <124889856+GavS19@users.noreply.github.com>
 Date:   Mon Mar 18 21:50:44 2024 +0530
 
     Resolving conflict
+
+# Stash - save work in progress in current file for emergency commit 
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ ls
+Home.html  HowTo.md  NewCommands.md  license.txt
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ nano Home.html
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Home.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ git stash
+Saved working directory and index state WIP on master: f97e43b added license
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ git stash list
+stash@{0}: WIP on master: f97e43b added license
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ nano license.txt
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   license.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ git commit -am "Updated release"
+warning: in the working copy of 'license.txt', LF will be replaced by CRLF the next time Git touches it
+[master 260d165] Updated release
+ 1 file changed, 1 insertion(+)
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ cat Home.html
+This is Home Page
+Updates in 'updates' branch
+Well this is an HTML.. if you look at it
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ git stash pop
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Home.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (ac0dbdbd228d33105ebdb440be091e503aa76d1b)
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ git stash list
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ cat Home.html
+This is Home Page
+Updates in 'updates' branch
+Well this is an HTML.. if you look at it
+added lines.. work in progress
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/GitBranching (master)
+$ git commit Home.html -m "removed stash & commited my work"
+[master dd49304] removed stash & commited my work
+ 1 file changed, 1 insertion(+)
