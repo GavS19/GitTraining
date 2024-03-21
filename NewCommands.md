@@ -369,7 +369,20 @@ for the new repo's which could create conflict if local git uses existing naming
 * Need to input username & password everytime pushing files from local to remote repo
 
 ### SSH
-* Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev
+* Check if SSH is installed. Can run in command prompt/bash. 
+  $ssh -V
+* Run following to generate ssh public key
+  $ .ssh-keygen -t rsa -C "gsaitwal19@gmail.com"
+* In case of error, add following PATH  in Env variables, if not available
+  c/WINDOWS/System32/OpenSSH
+* Note the public ssh key in file : id_rsa.pub 
+* Login to Github. Go to User Settings >> SSH
+* add name & paste the ssh key from above step
+* To validate enter following bash command in Git
+  $ ssh -T git@github.com
+
+#### Commands ####
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev
 $ ls
 GitBranching/  SigmaWebDev/  TestGitOps/
 
@@ -431,3 +444,90 @@ $ ls -al
 total 0
 drwxr-xr-x 1 Admin 197121 0 Mar 19 21:55 ./
 drwxr-xr-x 1 Admin 197121 0 Mar 19 21:55 ../
+
+#### Test SSH connection Git
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev
+$ ssh -T git@github.com
+The authenticity of host 'github.com (20.207.73.82)' can't be established.
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'github.com' (ED25519) to the list of known hosts.
+Hi GavS19! You've successfully authenticated, but GitHub does not provide shell access.
+
+#### Clone Repository from GitHub
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev
+$ git clone git@github.com:GavS19/My-Website.git
+Cloning into 'My-Website'...
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 5 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (5/5), 5.72 KiB | 94.00 KiB/s, done.
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev
+$ ls
+GitBranching/  My-Website/  SigmaWebDev/  TestGitOps/
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev
+$ cd My-Website/
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/My-Website (master)
+$ ls -al
+total 21
+drwxr-xr-x 1 Admin 197121     0 Mar 20 20:27 ./
+drwxr-xr-x 1 Admin 197121     0 Mar 20 20:27 ../
+drwxr-xr-x 1 Admin 197121     0 Mar 20 20:27 .git/
+-rw-r--r-- 1 Admin 197121  2177 Mar 20 20:27 .gitignore
+-rw-r--r-- 1 Admin 197121 11558 Mar 20 20:27 LICENSE
+-rw-r--r-- 1 Admin 197121    12 Mar 20 20:27 README.md
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/My-Website (master)
+$ git remote -v
+origin  git@github.com:GavS19/My-Website.git (fetch)
+origin  git@github.com:GavS19/My-Website.git (push)
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/My-Website (master)
+$ cd..
+bash: cd..: command not found
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/My-Website (master)
+$ cd  /f/DOMAIN_LEARNING/SigmaWebDev/
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev
+$ ls
+GitBranching/  My-Website/  SigmaWebDev/  TestGitOps/
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev
+$ rm -rf My-Website/
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev
+$ ls
+GitBranching/  SigmaWebDev/  TestGitOps/
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev
+$ git clone git@github.com:GavS19/My-Website.git MyWeb
+Cloning into 'MyWeb'...
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 5 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (5/5), 5.72 KiB | 5.72 MiB/s, done.
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev
+$ ls
+GitBranching/  MyWeb/  SigmaWebDev/  TestGitOps/
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev
+$ cd MyWeb/
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/MyWeb (master)
+$ ls -al
+total 21
+drwxr-xr-x 1 Admin 197121     0 Mar 20 20:31 ./
+drwxr-xr-x 1 Admin 197121     0 Mar 20 20:31 ../
+drwxr-xr-x 1 Admin 197121     0 Mar 20 20:31 .git/
+-rw-r--r-- 1 Admin 197121  2177 Mar 20 20:31 .gitignore
+-rw-r--r-- 1 Admin 197121 11558 Mar 20 20:31 LICENSE
+-rw-r--r-- 1 Admin 197121    12 Mar 20 20:31 README.md
+
