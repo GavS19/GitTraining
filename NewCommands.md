@@ -549,7 +549,7 @@ $ nano README.md
 
 Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/MyWeb (master)
 $ cat README.md
-# My-Website
+ My-Website
 Added readme in local Git
 
 Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/MyWeb (master)
@@ -602,3 +602,131 @@ $ cat MyHome.html
 Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/MyWeb (master)
 $ git status
 On branch master
+
+## Renaming remote reference ##
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/MyWeb (master)
+$ git remote -v
+origin  git@github.com:GavS19/My-Website.git (fetch)
+origin  git@github.com:GavS19/My-Website.git (push)
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/MyWeb (master)
+$ git remote set-url origin git@github.com:GavS19/Website.git
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/MyWeb (master)
+$ git remote -v
+origin  git@github.com:GavS19/Website.git (fetch)
+origin  git@github.com:GavS19/Website.git (push)
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/MyWeb (master)
+$ git remote show origin
+* remote origin
+  Fetch URL: git@github.com:GavS19/Website.git
+  Push  URL: git@github.com:GavS19/Website.git
+  HEAD branch: master
+  Remote branch:
+    master tracked
+  Local branch configured for 'git pull':
+    master merges with remote master
+  Local ref configured for 'git push':
+    master pushes to master (up to date)
+
+
+## Creating a Pull Request ##
+Step 1 :  
+* Edit desired file 
+* Click on Commit changes
+
+![Alt text](/GitBranching/images/step1.png)
+
+Step 2: 
+* Enter commit message
+* select create a new branch
+* Click propose changes
+
+![Alt text](/GitBranching/images/step2.png)
+
+Step 3
+* Add comments
+* Click on open pull req
+
+![Alt text](/GitBranching/images/step3.png)
+
+Step 4
+* Click Merge PR
+
+![Alt text](/GitBranching/images/step4.png)
+
+Step 5
+* Confirm merge 
+
+![Alt text](/GitBranching/images/step5.png)
+
+Step 6
+* Done! Feature branch can be deleted!! 
+
+![Alt text](/GitBranching/images/step6.png)
+
+
+### Another way
+Step a
+* On Github repo master branch, click on ‘Compare & pull request’ on any existing PR 
+
+  ![Alt text](/GitBranching/images/step%20a.png)
+
+Step b
+* Review, add comment & click on Create PR
+
+  ![Alt text](/GitBranching/images/step%20b.png)
+
+Step c
+* Merge pr & confirm merge
+
+  ![Alt text](/GitBranching/images/step%20c.png)
+  
+
+## Synching local repository with Github changes ##
+    Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/MyWeb (master)
+    $ git status
+    On branch master
+    Your branch is up to date with 'origin/master'.
+
+    nothing to commit, working tree clean
+
+    Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/MyWeb (master)
+    $ git fetch
+    remote: Enumerating objects: 9, done.
+    remote: Counting objects: 100% (9/9), done.
+    remote: Compressing objects: 100% (7/7), done.
+    remote: Total 7 (delta 2), reused 0 (delta 0), pack-reused 0
+    Unpacking objects: 100% (7/7), 3.03 KiB | 8.00 KiB/s, done.
+    From github.com:GavS19/Website
+      5094f1f..7100b1b  master     -> origin/master
+
+    Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/MyWeb (master)
+    $ ls
+    LICENSE  MyHome.html  MyServices.html  README.md  scripts.js  styles.css
+
+    Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/MyWeb (master)
+    $ git status
+    On branch master
+    Your branch is behind 'origin/master' by 3 commits, and can be fast-forwarded.
+      (use "git pull" to update your local branch)
+
+    nothing to commit, working tree clean
+
+    Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/MyWeb (master)
+    $ git pull
+    Updating 5094f1f..7100b1b
+    Fast-forward
+    MyHome.html | 2 ++
+    lipsum.txt  | 7 +++++++
+    2 files changed, 9 insertions(+)
+    create mode 100644 lipsum.txt
+
+    Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/MyWeb (master)
+    $ ls
+    LICENSE      MyServices.html  lipsum.txt  styles.css
+    MyHome.html  README.md        scripts.js
+
+## SHA id to view commit details
+![alt text](/GitBranching/images/SHA.png)
