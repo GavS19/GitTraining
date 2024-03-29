@@ -381,7 +381,7 @@ for the new repo's which could create conflict if local git uses existing naming
 * To validate enter following bash command in Git
   $ ssh -T git@github.com
 
-#### Commands ####
+## ssh key generation ##
 Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev
 $ ls
 GitBranching/  SigmaWebDev/  TestGitOps/
@@ -455,7 +455,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 Warning: Permanently added 'github.com' (ED25519) to the list of known hosts.
 Hi GavS19! You've successfully authenticated, but GitHub does not provide shell access.
 
-#### Clone Repository from GitHub
+## Clone Repository from GitHub ##
 Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev
 $ git clone git@github.com:GavS19/My-Website.git
 Cloning into 'My-Website'...
@@ -531,3 +531,74 @@ drwxr-xr-x 1 Admin 197121     0 Mar 20 20:31 .git/
 -rw-r--r-- 1 Admin 197121 11558 Mar 20 20:31 LICENSE
 -rw-r--r-- 1 Admin 197121    12 Mar 20 20:31 README.md
 
+## git fetch & pull basic ##
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/MyWeb (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/MyWeb (master)
+$ ls
+LICENSE  MyHome.html  MyServices.html  README.md  scripts.js  styles.css
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/MyWeb (master)
+$ nano README.md
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/MyWeb (master)
+$ cat README.md
+# My-Website
+Added readme in local Git
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/MyWeb (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/MyWeb (master)
+$ git commit -am "commit readme.md file udpates"
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+[master e059bd0] commit readme.md file udpates
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/MyWeb (master)
+$ git push
+To github.com:GavS19/My-Website.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'github.com:GavS19/My-Website.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/MyWeb (master)
+$ cat MyHome.html
+<Header>MY Home Page</Header>
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/MyWeb (master)
+$ git fetch
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 966 bytes | 3.00 KiB/s, done.
+From github.com:GavS19/My-Website
+   57da4ce..6ab3149  master     -> origin/master
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/MyWeb (master)
+$ cat MyHome.html
+<Header>MY Home Page</Header>
+
+Admin@DESKTOP-092184C MINGW64 /f/DOMAIN_LEARNING/SigmaWebDev/MyWeb (master)
+$ git status
+On branch master
